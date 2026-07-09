@@ -1,8 +1,12 @@
-﻿Feature: Visualizacion de certificados ambientales 
+﻿Feature: Visualización de certificados ambientales
 
   Background:
-  Given que el consumidor está en la sección de sostenibilidad de un producto
+    Given que el consumidor está en la sección de sostenibilidad de un producto
 
-Scenario: Mostrar sellos de certificación válidos
-  Then el sistema despliega los logotipos de las certificaciones ambientales que posee el producto (ej: "FSC", "EcoLabel")
-  And al hacer clic en un sello, el sistema muestra la fecha de vigencia y la entidad que lo otorgó
+  Scenario: Mostrar sellos de certificación válidos
+    Then el sistema despliega los logotipos de las certificaciones ambientales que posee el producto (ej: "FSC", "EcoLabel")
+    And al hacer clic en un sello, el sistema muestra la fecha de vigencia y la entidad que lo otorgó
+
+  Scenario: Producto sin certificaciones ambientales registradas
+    Given que el producto no cuenta con certificaciones ambientales asociadas
+    Then el sistema muestra el mensaje "Este producto no cuenta con certificaciones ambientales registradas"
